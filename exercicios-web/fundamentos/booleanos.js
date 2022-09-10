@@ -28,5 +28,5 @@ console.log(!!(isAtivo = false))
 console.log('pra finalizar...')
 console.log(!!('' || null || 0 || ' '))
 
-let nome = 'Lucas'
+let nome = ''
 console.log(nome || 'Desconhecido')

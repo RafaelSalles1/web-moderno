@@ -1,19 +1,19 @@
-const express = require('express')
+import express from 'express'
 const app = express()
-const bodyParser = require('body-parser')
+import { text, json, urlencoded } from 'body-parser'
 
-const saudacao = require('./saudacaoMid')
-const usuarioApi = require('./api/usuario')
-const produtoApi = require('./api/produto')
+import saudacao from './saudacaoMid'
+import { salvar, obter } from './api/usuario'
+import produtoApi from './api/produto'
 produtoApi(app, 'com param!')
 
 
-app.post('/usuario', usuarioApi.salvar)
-app.get('/usuario', usuarioApi.obter)
+app.post('/usuario', salvar)
+app.get('/usuario', obter)
 
-app.use(bodyParser.text())
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(text())
+app.use(json())
+app.use(urlencoded({ extended: true }))
 
 app.use(saudacao('Guilherme'))
 

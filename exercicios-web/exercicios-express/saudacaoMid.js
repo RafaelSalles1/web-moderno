@@ -6,4 +6,4 @@ function saudacao(nome) {
     }
 }
 
-module.exports = saudacao
+export default saudacao
